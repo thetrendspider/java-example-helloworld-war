@@ -18,3 +18,6 @@ jobs:
           cp WEB-INF/web.xml build/WEB-INF/
           jar cvf helloworld.war -C build .
           
+      - name: Display WAR file
+        run: ls helloworld.war
+          
