@@ -13,5 +13,5 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Build WAR
-        run: jar cvf helloworld.war -C build .
+        run: jar cvf helloworld.war -C .
           
