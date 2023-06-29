@@ -13,5 +13,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Build WAR
-        run: jar cvf helloworld.war -C .
+        run: |
+          mkdir -p build/WEB-INF
+          cp web.xml build/WEB-INF/
+          jar cvf myapp.war -C build .
           
