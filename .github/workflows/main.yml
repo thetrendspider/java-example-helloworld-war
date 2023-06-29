@@ -16,5 +16,5 @@ jobs:
         run: |
           mkdir -p build/WEB-INF
           cp web.xml build/WEB-INF/
-          jar cvf myapp.war -C build .
+          jar cvf helloworld.war -C build .
           
