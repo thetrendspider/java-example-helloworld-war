@@ -28,4 +28,12 @@ jobs:
         run: |
           mkdir -p deployment
           cp helloworld.war deployment/
+
+      - name: Store WAR file in repo
+        run: |
+          mkdir -p war
+          cp helloworld.war war/
+          git add war
+          git commit -m "Add WAR file"
+          git push origin master
           
