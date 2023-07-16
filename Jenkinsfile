@@ -8,17 +8,17 @@ pipeline {
                 // Replace <repository-url> with your Git repository URL
                 git branch: 'master', url: 'https://github.com/thetrendspider/java-example-helloworld-war.git'
             }
-        }/* 
+        }
        
-        stage('Build') {
+        stage('docker build') {
             steps {
                 // Build your project
                 // Example: Maven build
-                sh 'mvn clean install'
+                sh 'docker build -t test-image .'
             }
         }
         
-        stage('Test') {
+        /* stage('Test') {
             steps {
                 // Run your tests
                 // Example: Maven test
