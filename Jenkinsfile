@@ -1,6 +1,11 @@
 pipeline {
     agent any
-    
+
+    environment {
+    GCP_PROJECT = "My First Project"
+    GCR_REGISTRY = "gcr.io/$GCP_PROJECT"
+    DOCKER_IMAGE = "$GCR_REGISTRY/my-image:${env.BUILD_ID}"
+  } 
     stages {
         stage('Checkout') {
             steps {
@@ -12,9 +17,10 @@ pipeline {
        
         stage('docker build') {
             steps {
-                // Build your project
-                // Example: Maven build
-                sh 'docker build -t test-image .'
+                script {
+                    docker.build("$DOCKER_IMAGE", "-f Dockerfile .")
+
+                }
             }
         }
         
