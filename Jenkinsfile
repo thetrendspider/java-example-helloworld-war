@@ -14,7 +14,12 @@ pipeline {
                 git branch: 'master', url: 'https://github.com/thetrendspider/java-example-helloworld-war.git'
             }
         }
-       
+        stage('Test GCR Credentials') {
+          steps {
+             sh 'gcloud auth activate-service-account --key-file=arched-sorter-347511-40470fb50c71.json'
+             sh 'gcloud auth list'
+            }
+        }
         stage('docker build') {
             steps {
                 script {
