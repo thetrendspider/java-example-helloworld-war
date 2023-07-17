@@ -20,6 +20,10 @@ pipeline {
                 script {
                     docker.build("$DOCKER_IMAGE", "-f Dockerfile .")
 
+                    docker.withRegistry("https://gcr.io", "gcr-auth") {
+                      dockerImage.push()
+                    }
+
                 }
             }
         }
