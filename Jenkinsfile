@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-    GCP_PROJECT = "My First Project"
+    GCP_PROJECT = "arched-sorter-347511"
     GCR_REGISTRY = "gcr.io/$GCP_PROJECT"
     DOCKER_IMAGE = "$GCR_REGISTRY/my-image:${env.BUILD_ID}"
   } 
